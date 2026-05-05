@@ -1,0 +1,16 @@
+# Dependencies - ห้ามเอาโฟลเดอร์ Library ขึ้นไป
+node_modules/
+**/node_modules/
+
+# Environment Variables - ห้ามเอาความลับ/รหัสผ่านขึ้น GitHub
+.env
+.env.local
+Server/.env
+
+# Build Outputs - ไฟล์ที่ได้จากการคอมไพล์ (เดี๋ยว Vercel สร้างให้ใหม่เอง)
+dist/
+build/
+empolye/dist/
+
+# Logs
+npm-debug.log*
