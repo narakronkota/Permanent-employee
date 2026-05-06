@@ -1,4 +1,7 @@
-import mysql from "mysql"
+import mysql from "mysql2"; 
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const con = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -11,6 +14,8 @@ const con = mysql.createConnection({
         rejectUnauthorized: false
     }
 })
+console.log("🔍 Checking Host:", process.env.DB_HOST);
+console.log("🔍 Checking Port:", process.env.DB_PORT);
 con.connect((err) => {
   if(err){
     console.log("Database connection error")
