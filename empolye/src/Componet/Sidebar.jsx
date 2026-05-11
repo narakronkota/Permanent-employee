@@ -32,7 +32,7 @@ const Sidebar = () => {
   useEffect(() => {
     const fetchAdminData = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/user/admin_details/2', { withCredentials: true });
+        const res = await axios.get('https://emolyee-contact.onrender.com/auth/admin_details/2', { withCredentials: true });
         if (res.data.Status && res.data.Result.length > 0) {
           const dbImage = res.data.Result[0].image;
           setAdminAvatar(dbImage);
@@ -57,7 +57,7 @@ const Sidebar = () => {
     formData.append('id', 2);
 
     try {
-      const res = await axios.post('http://localhost:3000/user/upload_avatar', formData, { withCredentials: true });
+      const res = await axios.post('https://emolyee-contact.onrender.com/user/upload_avatar', formData, { withCredentials: true });
 
       if (res.data.Status) {
         const newImageUrl = res.data.Result;
@@ -121,7 +121,7 @@ const Sidebar = () => {
 
     if (result.isConfirmed) {
       try {
-        const res = await axios.delete('http://localhost:3000/user/delete_avatar/1', {
+        const res = await axios.delete('https://emolyee-contact.onrender.com/user/delete_avatar/1', {
           data: { id: 1 }, 
           withCredentials: true
         });

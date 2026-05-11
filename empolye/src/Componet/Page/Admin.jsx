@@ -57,7 +57,7 @@ const Admin = () => {
   }, []);
 
   const fetchSummary = () => {
-    axios.get('https://emolyee-contact.onrender.com/auth/dashboard_summary', { withCredentials: true })
+    axios.get('https://emolyee-contact.onrender.com/auth/admin_records', { withCredentials: true })
       .then(res => {
         if (res.data.Status) {
           setSummary({
