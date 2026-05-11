@@ -16,7 +16,7 @@ const Login = () => {
     setLoading(true);
     setError('');
 
-    axios.post('https://emolyee-contact.onrender.com/admin/adminlogin', values, { withCredentials: true })
+    axios.post('https://emolyee-contact.onrender.com/auth/adminlogin', values, { withCredentials: true })
       .then(result => {
         if (result.data.loginStatus) {
           navigate('/admin');
