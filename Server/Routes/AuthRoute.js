@@ -20,7 +20,12 @@ router.post('/adminlogin', (req, res) => {
                     process.env.JWT_SECRET_KEY,
                     { expiresIn: "1d" }
                 );
-                res.cookie('token', token);
+                res.cookie('token', token, {
+                    httpOnly: true,
+                    secure: true,      // ต้องเป็น true เพราะใช้ https บน Render
+                    sameSite: 'none',   // สำคัญที่สุด: เพื่อให้ Cookie ส่งข้ามโดเมนได้
+                    maxAge: 3600000    // อายุ 1 ชั่วโมง
+                });
                 return res.json({ loginStatus: true });
             } else {
                 return res.json({ loginStatus: false, Error: "Wrong password" });
