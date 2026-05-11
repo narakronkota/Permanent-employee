@@ -34,7 +34,7 @@ const Profile = () => {
   });
 
   const fetchEmployees = () => {
-    axios.get("https://emolyee-contact.onrender.com/auth/employee")
+    axios.get("https://emolyee-contact.onrender.com/auth/employee", { withCredentials: true })
       .then((res) => {
         if (res.data.Status) {
           setEmployees(res.data.Result);

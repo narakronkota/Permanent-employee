@@ -71,12 +71,13 @@ const Admin = () => {
   };
 
   const fetchAdmins = () => {
-    axios.get('https://emolyee-contact.onrender.com/auth/admin_records') ,{ withCredentials: true }
+   
+    axios.get('https://emolyee-contact.onrender.com/auth/admin_records', { withCredentials: true })
       .then(res => {
         if (res.data.Status) setAdmins(res.data.Result);
       })
       .catch(err => console.log(err));
-  };
+};
 
   const stats = [
 
