@@ -34,7 +34,7 @@ const Profile = () => {
   });
 
   const fetchEmployees = () => {
-    axios.get("http://localhost:3000/auth/employee")
+    axios.get("https://emolyee-contact.onrender.com/auth/employee")
       .then((res) => {
         if (res.data.Status) {
           setEmployees(res.data.Result);
@@ -57,7 +57,7 @@ const Profile = () => {
   const handleUpdate = (e) => {
     e.preventDefault();
     // เพิ่ม { withCredentials: true } เป็น Argument ตัวที่ 3
-    axios.put(`http://localhost:3000/auth/edit_employee/${editingEmp.id}`, editingEmp, { withCredentials: true })
+    axios.put(`https://emolyee-contact.onrender.com/auth/edit_employee/${editingEmp.id}`, editingEmp, { withCredentials: true })
       .then((res) => {
         if (res.data.Status) {
           alert("อัปเดตข้อมูลสำเร็จ!");
@@ -84,7 +84,7 @@ const Profile = () => {
 
       if (result.isConfirmed) {
 
-        axios.delete(`http://localhost:3000/auth/delete_employee/${id}`, { withCredentials: true })
+        axios.delete(`https://emolyee-contact.onrender.com/auth/delete_employee/${id}`, { withCredentials: true })
           .then((res) => {
             if (res.data.Status) {
               fetchEmployees(); // ดึงข้อมูลใหม่มาโชว์

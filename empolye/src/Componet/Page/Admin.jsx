@@ -40,7 +40,7 @@ const Admin = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
-    axios.get('http://localhost:3000/auth/verify', { withCredentials: true })
+    axios.get('https://emolyee-contact.onrender.com/auth/verify', { withCredentials: true })
       .then(res => {
         if (!res.data.Status) {
           navigate('/');
@@ -57,7 +57,7 @@ const Admin = () => {
   }, []);
 
   const fetchSummary = () => {
-    axios.get('http://localhost:3000/auth/dashboard_summary', { withCredentials: true })
+    axios.get('https://emolyee-contact.onrender.com/auth/dashboard_summary', { withCredentials: true })
       .then(res => {
         if (res.data.Status) {
           setSummary({
@@ -71,7 +71,7 @@ const Admin = () => {
   };
 
   const fetchAdmins = () => {
-    axios.get('http://localhost:3000/auth/admin_records')
+    axios.get('https://emolyee-contact.onrender.com/auth/admin_records') ,{ withCredentials: true }
       .then(res => {
         if (res.data.Status) setAdmins(res.data.Result);
       })
