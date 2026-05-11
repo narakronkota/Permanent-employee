@@ -44,7 +44,7 @@ const Manage = () => {
     formData.append('category', values.category);
     formData.append('image', file);
 
-    axios.post('https://emolyee-contact.onrender.com/auth/add_employee', formData, {withCredentials: true }).catch.apply
+    axios.post('https://emolyee-contact.onrender.com/auth/add_employee', formData, {withCredentials: true })
       .then(res => {
         setLoading(false); // 2. หยุดหมุนเมื่อได้รับคำตอบ
         if (res.data.Status) {
