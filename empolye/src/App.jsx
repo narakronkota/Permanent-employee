@@ -16,7 +16,7 @@ function App() {
 
         <Route path="/" element={<Login />} />
 
-        {/* 🔥 ใช้ Layout ครอบ */}
+        
         <Route element={<Layout />}>
 
           <Route path="/admin" element={<Admin />} />
