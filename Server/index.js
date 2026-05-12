@@ -10,7 +10,7 @@ const app = express()
 
 // แก้ใน index.js (Backend) แบบนี้ครับ
 app.use(cors({
-    origin: true, // เปลี่ยนจาก [ลิสต์ URL] เป็น true ตัวเดียวเลยครับ
+    origin: true, 
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
