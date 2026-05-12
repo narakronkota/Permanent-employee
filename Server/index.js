@@ -8,7 +8,7 @@ import userRouter from './Routes/๊UserRoute.js';
 import authroutes from './Routes/AuthRoute.js'
 const app = express()
 
-// แก้ใน index.js (Backend) แบบนี้ครับ
+
 app.use(cors({
     origin: true, 
     methods: ["GET", "POST", "PUT", "DELETE"],
