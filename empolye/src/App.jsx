@@ -9,7 +9,7 @@ import Admin from './Componet/Page/Admin';
 import Layout from './Componet/Layout';
 
 
-function App() {
+function App() {    
   return (
     <BrowserRouter>
       <Routes>
