@@ -59,6 +59,7 @@ const Admin = () => {
   const fetchSummary = () => {
     axios.get('https://emolyee-contact.onrender.com/auth/dashboard_summary', { withCredentials: true })
       .then(res => {
+        console.log("Data from Backend:", res.data.Result); 
         if (res.data.Status) {
           setSummary({
             adminCount: res.data.Result.adminCount || 0,

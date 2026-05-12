@@ -97,9 +97,8 @@ const Sidebar = () => {
       cancelButtonText: 'ยกเลิก'
     }).then((result) => {
       if (result.isConfirmed) {
-        // 2. ล้างข้อมูล Login (ถ้าพี่เก็บ Token หรือค่าอะไรไว้ใน localStorage)
-        localStorage.removeItem("adminAvatar");
-        // localStorage.clear(); // หรือล้างทั้งหมดถ้าต้องการ
+        localStorage.removeItem("valid"); // หรือชื่อตัวแปรที่พี่ใช้เช็คว่า Login อยู่ไหม
+     
 
         // 3. เด้งไปหน้า Login
         navigate('/');
