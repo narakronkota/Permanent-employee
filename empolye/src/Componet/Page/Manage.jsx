@@ -46,19 +46,19 @@ const Manage = () => {
 
     axios.post('https://emolyee-contact.onrender.com/auth/add_employee', formData, {withCredentials: true }) 
       .then(res => {
-        setLoading(false); // 2. หยุดหมุนเมื่อได้รับคำตอบ
+        setLoading(false); 
         if (res.data.Status) {
           Swal.fire({
             icon: 'success',
             title: 'เพิ่มพนักงานสำเร็จ!',
             text: 'ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว',
             showConfirmButton: false,
-            timer: 1500 // แสดง 1.5 วินาทีแล้วจะปิดเอง
+            timer: 1500 
           }).then(() => {
-            navigate('/profile'); // ย้ายไปหน้าจัดการพนักงาน (หรือ path ที่พี่ต้องการ)
+            navigate('/profile'); 
           });
         } else {
-          // ❌ แสดง Error กรณี Backend ส่งข้อความผิดพลาดมา
+     
           Swal.fire({
             icon: 'error',
             title: 'เกิดข้อผิดพลาด',

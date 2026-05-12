@@ -97,16 +97,16 @@ const Sidebar = () => {
       cancelButtonText: 'ยกเลิก'
     }).then((result) => {
       if (result.isConfirmed) {
-        localStorage.removeItem("valid"); // หรือชื่อตัวแปรที่พี่ใช้เช็คว่า Login อยู่ไหม
+        localStorage.removeItem("valid"); 
      
 
-        // 3. เด้งไปหน้า Login
+       
         navigate('/');
       }
     });
   };
   const removeAvatar = async () => {
-    // 🔥 เพิ่มระบบ Confirm ก่อนลบจริง (User จะได้ไม่กดพลาด)
+    
     const result = await Swal.fire({
       title: 'คุณเเน่ใจ?',
       text: "รูปนี้จะหายไปจากระบบทันที!",

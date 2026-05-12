@@ -56,7 +56,7 @@ const Profile = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    // เพิ่ม { withCredentials: true } เป็น Argument ตัวที่ 3
+
     axios.put(`https://emolyee-contact.onrender.com/auth/edit_employee/${editingEmp.id}`, editingEmp, { withCredentials: true })
       .then((res) => {
         if (res.data.Status) {
@@ -122,7 +122,6 @@ const Profile = () => {
     );
   }, [employees, search]);
 
-  // สีรูปโปรไฟล์ตามตัวอักษรแรก (gimmick)
   const avatarColors = [
     "from-pink-500 to-rose-500",
     "from-blue-500 to-cyan-500",
