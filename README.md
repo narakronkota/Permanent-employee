@@ -15,7 +15,7 @@ Employee Management: ระบบ CRUD (Create, Read, Update, Delete) ข้อ�
 
 Cloud Profile Image: อัปโหลดและจัดการรูปโปรไฟล์ผ่าน Cloudinary
 
-Responsive Dashboard: หน้าจอ Dashboard สวยงาม รองรับทุกอุปกรณ์ พร้อมกราฟ Sparkline แสดงแนวโน้มข้อมูล
+Responsive Dashboard: รองรับ
 
 🛠 Tech Stack
 Frontend: React.js, Tailwind CSS, Lucide React (Icons), Axios
