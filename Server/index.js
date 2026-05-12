@@ -4,16 +4,20 @@ import express from 'express';
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import adminRouter from "./Routes/AdminRoute.js";
-import userRouter from './Routes/๊UserRoute.js'; 
+import userRouter from './Routes/๊UserRoute.js';
 import authroutes from './Routes/AuthRoute.js'
 const app = express()
 
 
 app.use(cors({
-    origin: true, 
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
+  origin: [
+    "https://emolyee-contact.vercel.app",
+    "http://localhost:5173"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
+
 app.use(cookieParser())
 app.use(express.json())
 
