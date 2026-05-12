@@ -1,5 +1,5 @@
 import express from 'express';
-import con from '../utils/db.js'; // อย่าลืมแก้ path ให้ตรงกับไฟล์เชื่อม DB ของพี่
+import con from '../utils/db.js'; 
 import jwt from 'jsonwebtoken';
 import { verifyAdmin } from '../middleware/AuthMiddleware.js';
 
