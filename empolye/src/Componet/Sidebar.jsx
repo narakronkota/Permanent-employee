@@ -26,7 +26,7 @@ const Sidebar = () => {
     () => localStorage.getItem("adminAvatar") || ""
   );
   const [showPicker, setShowPicker] = useState(false);
-  const [isUploading, setIsUploading] = useState(false); // เช็คสถานะการอัปโหลด
+  const [isUploading, setIsUploading] = useState(false); 
 
   // 1. ดึงข้อมูลรูปจาก Database
   useEffect(() => {

@@ -114,7 +114,7 @@ router.put('/edit_employee/:id', verifyAdmin, (req, res) => {
 })
 
 router.delete('/delete_employee/:id', verifyAdmin, (req, res) =>  {
-    const id = req.params.id; // ดึง id จาก URL
+    const id = req.params.id; 
     const sql = "DELETE FROM addem WHERE id = ?";
 
     con.query(sql, [id], (err, result) => {
