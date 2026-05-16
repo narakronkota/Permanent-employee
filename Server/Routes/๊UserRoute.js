@@ -4,6 +4,9 @@ import con from '../utils/db.js';
 import { v2 as cloudinary } from 'cloudinary';
 const router = express.Router();
 
+// --------------------------------------------------------
+// POST: Upload or update admin avatar image
+// --------------------------------------------------------
 router.post('/upload_avatar', upload.single('image'), (req, res) => {
     const imageUrl = req.file.path; 
     const adminId = req.body.id;    
@@ -20,7 +23,9 @@ router.post('/upload_avatar', upload.single('image'), (req, res) => {
     });
 });
 
-
+// --------------------------------------------------------
+// GET: Retrieve profile details for a specific admin
+// --------------------------------------------------------
 router.get('/admin_details/:id', (req, res) => {
     const id = req.params.id;
     const sql = "SELECT id, email, image FROM admin WHERE id = ?";
@@ -33,7 +38,9 @@ router.get('/admin_details/:id', (req, res) => {
         });
     });
 });
-
+// --------------------------------------------------------
+// DELETE: Remove admin avatar from both Cloudinary and DB
+// --------------------------------------------------------
 router.delete('/delete_avatar/:id', (req, res) => {
   const id = req.params.id;
 

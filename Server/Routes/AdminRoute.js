@@ -8,7 +8,9 @@ import { verifyAdmin } from '../middleware/AuthMiddleware.js';
 const router = express.Router()
 
 
-
+// --------------------------------------------------------
+// POST: Add new employee with Cloudinary image upload
+// --------------------------------------------------------
 router.post('/add_employee', upload.single('image'), (req, res) => {
 
     console.log("DATA:", req.body);
@@ -41,6 +43,9 @@ router.post('/add_employee', upload.single('image'), (req, res) => {
     });
 });
 
+// --------------------------------------------------------
+// GET: Fetch all employees
+// --------------------------------------------------------
 router.get('/employee', (req, res)  => {
 
    
@@ -60,7 +65,9 @@ router.get('/employee', (req, res)  => {
 
 });
 
-
+// --------------------------------------------------------
+// GET: Fetch dashboard summary metrics (Admin Only)
+// --------------------------------------------------------
 router.get('/dashboard_summary', verifyAdmin, (req, res) => {
     
     const sql = `
@@ -84,7 +91,9 @@ router.get('/dashboard_summary', verifyAdmin, (req, res) => {
     });
 });
 
-
+// --------------------------------------------------------
+// GET: Fetch a specific employee by ID
+// --------------------------------------------------------
 
 router.get('/employee/:id', (req, res) => {
     const id = req.params.id;
@@ -95,6 +104,9 @@ router.get('/employee/:id', (req, res) => {
     })
 })
 
+// --------------------------------------------------------
+// PUT: Update employee details (Admin Only)
+// -------------------------------------------------------
 router.put('/edit_employee/:id', verifyAdmin, (req, res) => {
     const id = req.params.id;
 
@@ -113,6 +125,9 @@ router.put('/edit_employee/:id', verifyAdmin, (req, res) => {
     })
 })
 
+// --------------------------------------------------------
+// DELETE: Remove an employee from the system (Admin Only)
+// --------------------------------------------------------
 router.delete('/delete_employee/:id', verifyAdmin, (req, res) =>  {
     const id = req.params.id; 
     const sql = "DELETE FROM addem WHERE id = ?";
@@ -126,6 +141,7 @@ router.delete('/delete_employee/:id', verifyAdmin, (req, res) =>  {
         return res.json({ Status: true, Result: result });
     });
 });
+
 
 router.delete('/delete_employee/:id', (req, res) => {
    
