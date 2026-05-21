@@ -28,7 +28,8 @@ const Login = () => {
     setLoading(true);
     setError('');
 
-    axios.post(`${API_BASE_URL}/adminlogin`, values, { withCredentials: true })
+
+  axios.post(`${API_BASE_URL}/auth/adminlogin`, values, { withCredentials: true })
       .then((result) => {
         if (result.data.loginStatus) {
           navigate('/admin');
