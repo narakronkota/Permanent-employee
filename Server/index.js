@@ -21,9 +21,9 @@ app.use(cors({
 app.use(cookieParser())
 app.use(express.json())
 
-app.use('/auth', adminRouter)
-app.use('/user', userRouter)
-app.use('/auth', authroutes);
+app.use('/api/auth', adminRouter)
+app.use('/api/user', userRouter)
+app.use('/api/auth', authroutes);
 
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 3000;

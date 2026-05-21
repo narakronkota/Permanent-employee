@@ -15,7 +15,7 @@ import {
 import Swal from 'sweetalert2';
 
 //  Configuration Constants
-const API_BASE_URL = "https://staff-management-system-omega.vercel.app/user";
+const API_BASE_URL = "https://staff-management-system-omega.vercel.app/api";
 const ADMIN_ID = 2; 
 
 const MENU_ITEMS = [

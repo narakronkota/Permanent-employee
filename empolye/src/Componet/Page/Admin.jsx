@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Users, Wallet, TrendingUp, Clock, Sparkles } from "lucide-react"; // ✅ Import only icons used
 
 // 🌐 Centralized API Endpoint Config
-const API_BASE_URL = "https://staff-management-system-omega.vercel.app/auth";
+const API_BASE_URL = "https://staff-management-system-omega.vercel.app/api";
 
 const Admin = () => {
   const navigate = useNavigate();

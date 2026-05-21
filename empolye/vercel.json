@@ -5,8 +5,7 @@
     { "src": "Server/index.js", "use": "@vercel/node" }
   ],
   "rewrites": [
-    { "source": "/auth/(.*)", "destination": "Server/index.js" },
-    { "source": "/user/(.*)", "destination": "Server/index.js" },
+    { "source": "/api/(.*)", "destination": "Server/index.js" },
     { "source": "/(.*)", "destination": "/public/$1" }
   ]
 }
