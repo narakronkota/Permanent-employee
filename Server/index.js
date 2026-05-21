@@ -11,7 +11,7 @@ const app = express()
 
 app.use(cors({
   origin: [
-    "https://emolyee-contact.vercel.app",
+    "https://staff-management-system-omega.vercel.app",
     "http://localhost:5173"
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
