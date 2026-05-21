@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 // 🌐 Centralized API Endpoint Config
-const API_BASE_URL = "https://emolyee-contact.onrender.com/auth";
+const API_BASE_URL = "https://staff-management-system-omega.vercel.app/auth";
 
 // 🏢 Static Department Dataset
 const CATEGORY_OPTIONS = ["IT", "HR", "Finance"];

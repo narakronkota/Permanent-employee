@@ -18,7 +18,7 @@ import {
 import Swal from 'sweetalert2';
 
 //  Centralized API Endpoint Config
-const API_BASE_URL = "https://emolyee-contact.onrender.com/auth";
+const API_BASE_URL = "https://staff-management-system-omega.vercel.app/auth";
 
 //  Pure Helper Functions & Static Assets (Declared outside to prevent re-allocation)
 const AVATAR_COLORS = [
