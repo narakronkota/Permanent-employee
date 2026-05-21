@@ -15,7 +15,7 @@ import {
 import Swal from 'sweetalert2';
 
 //  Configuration Constants
-const API_BASE_URL = "https://staff-management-system-omega.vercel.app";
+const API_BASE_URL = "https://staff-management-system-omega.vercel.app/user";
 const ADMIN_ID = 2; 
 
 const MENU_ITEMS = [
@@ -36,10 +36,17 @@ const Sidebar = () => {
     () => localStorage.getItem("adminAvatar") || ""
   );
 
-  // 📥 Fetch Admin Avatar Details
+  // 📥 Fetch Admin Avatar Details (Universal Bearer Token Configuration)
   const fetchAdminData = useCallback(async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/auth/admin_details/${ADMIN_ID}`, { withCredentials: true });
+      const token = localStorage.getItem('token'); // 🔑 ควักรหัสใบเบิกทางออกจากถังความจำ
+
+      const res = await axios.get(`${API_BASE_URL}/auth/admin_details/${ADMIN_ID}`, {
+        headers: {
+          Authorization: `Bearer ${token}` // 🚀 ส่งแนบไปทางกล่อง Headers ทะลวงระบบ iOS
+        }
+      });
+
       if (res.data.Status && res.data.Result?.length > 0) {
         const dbImage = res.data.Result[0].image;
         setAdminAvatar(dbImage);
@@ -54,7 +61,7 @@ const Sidebar = () => {
     fetchAdminData();
   }, [fetchAdminData]);
 
-  // 📤 Upload Profile Avatar Image Handler
+  //  Upload Profile Avatar Image Handler (Multipart/Form-Data with Authorization Header)
   const handleFileUpload = async (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -65,7 +72,14 @@ const Sidebar = () => {
     formData.append('id', ADMIN_ID);
 
     try {
-      const res = await axios.post(`${API_BASE_URL}/user/upload_avatar`, formData, { withCredentials: true });
+      const token = localStorage.getItem('token'); // 🔑 ไปดึง Token สำหรับกดยืนยันสิทธิ์อัปโหลด
+
+      // 💡 
+      const res = await axios.post(`${API_BASE_URL}/user/upload_avatar`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}` 
+        }
+      });
 
       if (res.data.Status) {
         const newImageUrl = res.data.Result;
@@ -87,11 +101,11 @@ const Sidebar = () => {
       console.error("Upload Error:", err);
       Swal.fire('อุ๊ปส์...', 'อัปโหลดไม่สำเร็จ กรุณาลองใหม่อีกครั้ง!', 'error');
     } finally {
-      setIsUploading(false); // 🛑 การันตีว่าสปินเนอร์จะหยุดหมุนแน่นอนไม่ว่าจะสำเร็จหรือพัง
+      setIsUploading(false);
     }
   };
 
-  //  Remove Profile Avatar Image Handler
+  // 🗑️ Remove Profile Avatar Image Handler
   const removeAvatar = async () => {
     const result = await Swal.fire({
       title: 'คุณแน่ใจไหม?',
@@ -107,9 +121,13 @@ const Sidebar = () => {
     if (!result.isConfirmed) return;
 
     try {
+      const token = localStorage.getItem('token'); //  
+
       const res = await axios.delete(`${API_BASE_URL}/user/delete_avatar/${ADMIN_ID}`, {
-        data: { id: ADMIN_ID }, // ซิงค์ใช้ ID กลางตัวเดียวกันทั้งหมด
-        withCredentials: true
+        headers: {
+          Authorization: `Bearer ${token}` //  
+        },
+        data: { id: ADMIN_ID } 
       });
 
       if (res.data.Status) {
@@ -140,6 +158,8 @@ const Sidebar = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         localStorage.removeItem("valid");
+        localStorage.removeItem("token");
+        localStorage.removeItem("adminAvatar");
         navigate('/');
       }
     });

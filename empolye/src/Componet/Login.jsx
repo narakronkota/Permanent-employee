@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 
 // 🌐 Centralized Endpoint Configurations
-const API_BASE_URL = "https://staff-management-system-omega.vercel.app";
+const API_BASE_URL = "https://staff-management-system-omega.vercel.app/auth";
 
 const Login = () => {
   const navigate = useNavigate();
