@@ -54,7 +54,7 @@ const Manage = () => {
     Object.keys(values).forEach(key => formData.append(key, values[key]));
     formData.append('image', file);
 
-    axios.post(`${API_BASE_URL}/add_employee`, formData, { withCredentials: true }) 
+    axios.post(`${API_BASE_URL}/auth/add_employee`, formData, { withCredentials: true })
       .then(res => {
         setLoading(false); 
         if (res.data.Status) {

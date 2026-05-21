@@ -21,7 +21,7 @@ const Admin = () => {
   // --------------------------------------------------------
   useEffect(() => {
     // 🔐 Auth session validation
-    axios.get(`${API_BASE_URL}/verify`, { withCredentials: true })
+    axios.get(`${API_BASE_URL}/auth/verify`, { withCredentials: true })
       .then(res => {
         if (!res.data.Status) {
           navigate('/');
@@ -41,7 +41,7 @@ const Admin = () => {
   // API Core Requests
   // --------------------------------------------------------
   const fetchSummary = () => {
-    axios.get(`${API_BASE_URL}/dashboard_summary`, { withCredentials: true })
+    axios.get(`${API_BASE_URL}/auth/dashboard_summary`, { withCredentials: true })
       .then(res => {
         if (res.data.Status) {
           const data = res.data.Result;

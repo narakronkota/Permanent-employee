@@ -46,7 +46,7 @@ const Profile = () => {
 
   //  Core Service Data Fetcher
   const fetchEmployees = useCallback(() => {
-    axios.get(`${API_BASE_URL}/employee`, { withCredentials: true })
+    axios.get(`${API_BASE_URL}/auth/employee`, { withCredentials: true })
       .then((res) => {
         if (res.data.Status) {
           setEmployees(res.data.Result);
@@ -77,7 +77,7 @@ const Profile = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    axios.put(`${API_BASE_URL}/edit_employee/${editingEmp.id}`, editingEmp, { withCredentials: true })
+    axios.put(`${API_BASE_URL}/auth/edit_employee/${editingEmp.id}`, editingEmp, { withCredentials: true })
       .then((res) => {
         if (res.data.Status) {
           Swal.fire({
@@ -107,7 +107,7 @@ const Profile = () => {
       cancelButtonText: 'Cancel'
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`${API_BASE_URL}/delete_employee/${id}`, { withCredentials: true })
+        axios.delete(`${API_BASE_URL}/auth/delete_employee/${id}`, { withCredentials: true })
           .then((res) => {
             if (res.data.Status) {
               fetchEmployees();
