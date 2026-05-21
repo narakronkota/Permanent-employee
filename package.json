@@ -1,7 +1,7 @@
 {
-  "dependencies": {
-    "@tailwindcss/vite": "^4.2.2",
-    "lucide-react": "^1.8.0",
-    "tailwindcss": "^4.2.2"
+  "name": "root-project",
+  "private": true,
+  "scripts": {
+    "build": "cd empolye && npm install && npm run build && cp -r dist/ ../public"
   }
 }
