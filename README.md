@@ -19,7 +19,7 @@ Responsive Dashboard: รองรับ
 
 
 
-🛠 Tech Stack
+ Tech Stack
 Frontend: React.js, Tailwind CSS, Lucide React (Icons), Axios
 
 Backend: Node.js, Express.js
@@ -30,7 +30,7 @@ Image Hosting: Cloudinary API
 
 Deployment: Render
 
- Key Technical Challenges (สิ่งที่ผมได้เรียนรู้)
+ Key Technical Challenges 
 Cloud Migration: การย้ายฐานข้อมูลจาก Local ไปยัง Aiven Cloud และการจัดการ Connection String ให้มีความปลอดภัย
 
 State Management: การใช้ React Hooks (useState, useEffect) และ localStorage เพื่อจัดการข้อมูล User และรูปภาพโปรไฟล์ให้คงอยู่แม้มีการ Refresh หน้าจอ
