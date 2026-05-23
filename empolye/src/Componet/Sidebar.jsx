@@ -90,8 +90,8 @@ const Sidebar = () => {
 
         Swal.fire({
           icon: 'success',
-          title: 'อัปเดตเรียบร้อย!',
-          text: 'รูปโปรไฟล์ของคุณถูกเปลี่ยนแล้วครับ',
+          title: 'Update Successful!',
+          text: 'Your profile picture has been updated',
           timer: 2000,
           showConfirmButton: false
         });
@@ -109,8 +109,8 @@ const Sidebar = () => {
   //  Remove Profile Avatar Image Handler
   const removeAvatar = async () => {
     const result = await Swal.fire({
-      title: 'คุณแน่ใจไหม?',
-      text: "รูปภาพโปรไฟล์นี้จะหายไปจากระบบทันที!",
+      title: 'Are you sure?',
+      text: "This profile picture will be deleted immediately!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#4f46e5',
