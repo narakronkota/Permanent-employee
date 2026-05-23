@@ -3,7 +3,7 @@ Employee Contact Management System (Full-Stack)
 
 Backend: https://emolyee-contact.onrender.com
 
-Frontend: (https://emolyee-contact-mrbl.vercel.app/)
+Frontend: (https://staff-management-system-omega.vercel.app/)
 
  Features
 Authentication: ระบบ Login/Logout สำหรับ Admin พร้อมระบบ Verify ตัวตนผ่าน Middleware
