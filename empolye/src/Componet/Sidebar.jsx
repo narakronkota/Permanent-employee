@@ -14,9 +14,7 @@ import {
 } from "lucide-react";
 import Swal from 'sweetalert2';
 
-//  Configuration Constants
-const API_BASE_URL = "https://staff-management-system-omega.vercel.app/api";
-const ADMIN_ID = 2; 
+
 
 const MENU_ITEMS = [
   { to: "/admin", label: "Dashboard", icon: LayoutDashboard },
@@ -28,22 +26,25 @@ const Sidebar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const fileInputRef = useRef(null);
-  
+
   const [collapsed, setCollapsed] = useState(false);
   const [showPicker, setShowPicker] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const [adminAvatar, setAdminAvatar] = useState(
     () => localStorage.getItem("adminAvatar") || ""
   );
+  //  Configuration Constants
 
-  // 📥 Fetch Admin Avatar Details (Universal Bearer Token Configuration)
+  const API_BASE_URL = "https://staff-management-system-omega.vercel.app/api";
+  const ADMIN_ID = 2;
+  //  Fetch Admin Avatar Details (Universal Bearer Token Configuration)
   const fetchAdminData = useCallback(async () => {
     try {
-      const token = localStorage.getItem('token'); // 🔑 ควักรหัสใบเบิกทางออกจากถังความจำ
+      const token = localStorage.getItem('token'); // 
 
-      const res = await axios.get(`${API_BASE_URL}/auth/admin_details/${ADMIN_ID}`, {
+      const res = await axios.get(`${API_BASE_URL}/user/admin_details/${ADMIN_ID}`, {
         headers: {
-          Authorization: `Bearer ${token}` // 🚀 ส่งแนบไปทางกล่อง Headers ทะลวงระบบ iOS
+          Authorization: `Bearer ${token}` // 
         }
       });
 
@@ -72,12 +73,12 @@ const Sidebar = () => {
     formData.append('id', ADMIN_ID);
 
     try {
-      const token = localStorage.getItem('token'); // 🔑 ไปดึง Token สำหรับกดยืนยันสิทธิ์อัปโหลด
+      const token = localStorage.getItem('token');
 
       // 💡 
       const res = await axios.post(`${API_BASE_URL}/user/upload_avatar`, formData, {
         headers: {
-          Authorization: `Bearer ${token}` 
+          Authorization: `Bearer ${token}`
         }
       });
 
@@ -105,7 +106,7 @@ const Sidebar = () => {
     }
   };
 
-  // 🗑️ Remove Profile Avatar Image Handler
+  //  Remove Profile Avatar Image Handler
   const removeAvatar = async () => {
     const result = await Swal.fire({
       title: 'คุณแน่ใจไหม?',
@@ -127,7 +128,7 @@ const Sidebar = () => {
         headers: {
           Authorization: `Bearer ${token}` //  
         },
-        data: { id: ADMIN_ID } 
+        data: { id: ADMIN_ID }
       });
 
       if (res.data.Status) {
@@ -159,7 +160,7 @@ const Sidebar = () => {
       if (result.isConfirmed) {
         localStorage.removeItem("valid");
         localStorage.removeItem("token");
-        localStorage.removeItem("adminAvatar");
+
         navigate('/');
       }
     });
@@ -218,9 +219,8 @@ const Sidebar = () => {
             <Link
               key={item.to}
               to={item.to}
-              className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 relative ${
-                active ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-600/30" : "text-slate-300 hover:bg-white/5 hover:text-white"
-              }`}
+              className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 relative ${active ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-600/30" : "text-slate-300 hover:bg-white/5 hover:text-white"
+                }`}
             >
               {active && <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-white rounded-r-full" />}
               <Icon className={`w-5 h-5 shrink-0 ${active ? "text-white" : "text-slate-400 group-hover:text-white"}`} />
@@ -271,9 +271,8 @@ const Sidebar = () => {
               <button
                 disabled={isUploading}
                 onClick={() => fileInputRef.current?.click()}
-                className={`w-full flex items-center justify-center gap-2 py-3 border-2 border-dashed rounded-xl transition font-medium ${
-                  isUploading ? 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed' : 'border-indigo-300 text-indigo-600 hover:bg-indigo-50 hover:border-indigo-500'
-                }`}
+                className={`w-full flex items-center justify-center gap-2 py-3 border-2 border-dashed rounded-xl transition font-medium ${isUploading ? 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed' : 'border-indigo-300 text-indigo-600 hover:bg-indigo-50 hover:border-indigo-500'
+                  }`}
               >
                 <Upload className="w-5 h-5" />
                 {isUploading ? "กำลังอัปโหลด..." : "เลือกไฟล์รูปภาพ"}

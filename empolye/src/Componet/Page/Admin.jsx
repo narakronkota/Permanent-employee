@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Users, Wallet, TrendingUp, Clock, Sparkles } from "lucide-react"; // ✅ Import only icons used
+import { Users, Wallet, TrendingUp, Clock, Sparkles } from "lucide-react"; 
 
 // 🌐 Centralized API Endpoint Config
 const API_BASE_URL = "https://staff-management-system-omega.vercel.app/api";
 
 const Admin = () => {
   const navigate = useNavigate();
-  const [admins, setAdmins] = useState([]);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [summary, setSummary] = useState({
     adminCount: 0,
@@ -27,7 +26,7 @@ const Admin = () => {
           navigate('/');
         } else {
           fetchSummary();
-          fetchAdmins();
+          
         }
       })
       .catch(err => console.error("Auth Session Error:", err));
@@ -55,14 +54,7 @@ const Admin = () => {
       .catch(err => console.error("Metrics Fetch Error:", err));
   };
 
-  const fetchAdmins = () => {
-    axios.get(`${API_BASE_URL}/admin_records`, { withCredentials: true })
-      .then(res => {
-        if (res.data.Status) setAdmins(res.data.Result);
-      })
-      .catch(err => console.error("Admin Records Fetch Error:", err));
-  };
-
+  
   // --------------------------------------------------------
   // UI Presentation Metrics Mapping
   // --------------------------------------------------------
