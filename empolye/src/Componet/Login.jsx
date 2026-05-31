@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react"; // ใช้ไอคอนลูกตาสำหรับซ่อน/แสดงรหัสผ่าน
 
-// 🌐 Centralized Endpoint Configurations
+//  Centralized Endpoint Configurations
 const API_BASE_URL = "https://staff-management-system-omega.vercel.app/api";
 
 const Login = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [values, setValues] = useState({ email: '', password: '' });
+  const [error, setError] = useState("");
+  const [values, setValues] = useState({ email: "", password: "" });
 
   //  Dynamic Form Inputs Handler (Safe State Management)
   const handleInputChange = (e) => {
@@ -26,88 +26,114 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
-    setError('');
+    setError("");
 
-
-  axios.post(`${API_BASE_URL}/auth/adminlogin`, values, { withCredentials: true })
+    axios
+      .post(`${API_BASE_URL}/auth/adminlogin`, values, {
+        withCredentials: true,
+      })
       .then((result) => {
         if (result.data.loginStatus) {
-          navigate('/admin');
+          navigate("/admin");
         } else {
-          setError(result.data.Error || 'เข้าสู่ระบบไม่สำเร็จ');
+          setError(result.data.Error || "เข้าสู่ระบบไม่สำเร็จ");
         }
       })
-      .catch(() => setError('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง'))
+      .catch(() => setError("เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง"))
       .finally(() => setLoading(false));
   };
 
   return (
-    <div className="min-h-screen flex bg-white">
-      {/* Left Column - Graphic Banner (Visible on Large Screens) */}
-      <div className="hidden lg:flex lg:w-1/2 bg-purple-100 items-center justify-center overflow-hidden">
-        <img 
-          src="https://images.unsplash.com/photo-1632406898177-95f7acd8854f?q=80&w=1170&auto=format&fit=crop" 
-          alt="Cover Art" 
-          className="w-full h-full object-cover shadow-2xl" 
-        />
+    <div className="flex min-h-screen bg-white font-sans">
+      <div className="relative hidden w-1/2 flex-col justify-between bg-gradient-to-b from-slate-950 via-slate-900 to-indigo-600 p-16 text-white md:flex">
+        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+
+        <div className="relative z-10 my-auto max-w-md">
+          <div className="mb-6 text-6xl">＊</div>
+
+          <h1 className="mb-6 text-5xl font-bold leading-tight">
+            Hello <br />
+            One-Click Salary Compiler.{" "}
+            <span className="inline-block animate-bounce">👋</span>
+          </h1>
+
+          <p className="text-lg leading-relaxed text-blue-100">
+            Get highly productive through payroll automation. A concept sandbox
+            designed to save tons of time
+          </p>
+        </div>
       </div>
 
-      {/* Right Column - Unified Login Credentials Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12">
-        <div className="w-full max-w-sm">
-          <h2 className="text-3xl font-light text-slate-900 mb-2">เข้าสู่ระบบ</h2>
-          <p className="text-slate-500 mb-8">Admin Salary Management</p>
+      <div className="relative flex w-full items-center justify-center p-8 md:w-1/2 lg:p-16 bg-[radial-gradient(at_top_left,#f8fafc_0%,#f1f5f9_40%,#fae8ff_100%)] overflow-hidden">
+        {/* ลายตารางกริดสีขาว */}
+        <div className="absolute inset-0 z-0 opacity-40 bg-[linear-gradient(to_right,#ffffff_2px,transparent_2px),linear-gradient(to_bottom,#ffffff_2px,transparent_2px)] bg-[size:3rem_3rem]"></div>
 
-          {/* Conditional Error Notification Toast */}
+        <div className="absolute -bottom-20 -right-20 z-0 h-80 w-80 rounded-full bg-gradient-to-br from-fuchsia-200/40 to-indigo-200/40 blur-3xl"></div>
+
+        <div className="relative z-10 w-full max-w-md space-y-12">
+          <div>
+            <div className="text-2xl font-bold tracking-tight text-black mb-2">
+              One-Click Salary Compiler
+            </div>
+            <p className="text-sm text-slate-500">Admin Salary Management</p>
+          </div>
+
           {error && (
-            <div className="mb-5 p-3 rounded-lg bg-red-50 text-red-700 text-sm animate-in fade-in duration-200">
-              {error}
+            <div className="p-3.5 rounded-xl bg-red-50/80 border border-red-100 text-red-600 text-sm font-medium flex items-center gap-2 animate-in fade-in slide-in-from-top-2 duration-200">
+              
+              <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse"></span>
+
+              
+              {error === "เข้าสู่ระบบไม่สำเร็จ" || error === "Wrong password"
+                ? "รหัสผ่านไม่ถูก."
+                : error}
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Email Field Container */}
-            <div className="relative">
-              <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            {/* Input Email */}
+            <div className="relative border-b border-gray-900 pb-2">
               <input
                 type="email"
                 name="email"
                 value={values.email}
                 onChange={handleInputChange}
-                placeholder="Email"
-                className="w-full pl-11 pr-4 py-3 border border-slate-200 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-100 transition"
+                className="w-full bg-transparent text-base text-gray-900 placeholder-gray-400 focus:outline-none"
+                placeholder="Email Address"
                 required
               />
             </div>
 
-            {/* Password Field Container */}
-            <div className="relative">
-              <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+            <div className="relative border-b border-gray-300 pb-2 focus-within:border-gray-900 transition-colors flex items-center">
               <input
-                type={showPassword ? 'text' : 'password'}
+                type={showPassword ? "text" : "password"}
                 name="password"
                 value={values.password}
                 onChange={handleInputChange}
+                className="w-full bg-transparent text-base text-gray-900 placeholder-gray-400 focus:outline-none pr-10"
                 placeholder="Password"
-                className="w-full pl-11 pr-11 py-3 border border-slate-200 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-100 transition"
                 required
               />
+
               <button
                 type="button"
-                onClick={() => setShowPassword(prev => !prev)}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="absolute right-0 text-slate-400 hover:text-slate-600 transition"
               >
-                {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                {showPassword ? (
+                  <EyeOff className="w-5 h-5" />
+                ) : (
+                  <Eye className="w-5 h-5" />
+                )}
               </button>
             </div>
 
-            {/* Form Submit Action Trigger Button */}
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 rounded-lg bg-purple-600 text-white font-medium hover:bg-purple-700 active:scale-[0.98] transition disabled:opacity-60 disabled:pointer-events-none"
+              className="w-full rounded-lg bg-[#18181b] py-3.5 text-center text-sm font-semibold text-white transition-all hover:bg-gray-800 active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 disabled:opacity-60 disabled:pointer-events-none"
             >
-              {loading ? 'กำลังเข้าสู่ระบบ...' : 'เข้าสู่ระบบ'}
+              {loading ? "กำลังเข้าสู่ระบบ..." : "Login Now"}
             </button>
           </form>
         </div>
