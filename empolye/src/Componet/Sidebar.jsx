@@ -168,14 +168,14 @@ const Sidebar = () => {
   //  Authentication Sign Out Handler
   const handleLogout = () => {
     Swal.fire({
-      title: "ออกจากระบบ?",
-      text: "คุณต้องการออกจากระบบใช่หรือไม่?",
+      title: "Sign Out?",
+      text: "Are you sure you want to sign out of the system?",
       icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#ef4444",
       cancelButtonColor: "#64748b",
-      confirmButtonText: "ใช่, ออกเลย",
-      cancelButtonText: "ยกเลิก",
+      confirmButtonText: "Yes, Sign Out",
+      cancelButtonText: "Cancel",
     }).then((result) => {
       if (result.isConfirmed) {
         localStorage.removeItem("valid");
