@@ -34,7 +34,7 @@ router.post("/adminlogin", (req, res) => {
 
         return res.json({ loginStatus: true });
       } else {
-        return res.json({ loginStatus: false, Error: "worng text" });
+        return res.json({ loginStatus: false, Error: "not found" });
       }
     } else {
       return res.json({ loginStatus: false, Error: "Email not found" });
