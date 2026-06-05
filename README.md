@@ -1,48 +1,137 @@
-Employee Contact Management System (Full-Stack)
-ระบบจัดการข้อมูลและเงินเดือนพนักงานแบบ Full-Stack ที่รองรับการทำงานบนระบบ Cloud สมบูรณ์แบบ
+# Employee Contact Management System (Full-Stack)
 
-Backend: https://emolyee-contact.onrender.com
+A full-stack employee management system designed to help organizations manage employee information, department records, and salary statistics through a secure admin dashboard.
 
-Frontend: (https://staff-management-system-omega.vercel.app/)
+## 🚀 Live Demo
 
- Features
-Authentication: ระบบ Login/Logout สำหรับ Admin พร้อมระบบ Verify ตัวตนผ่าน Middleware
+https://staff-management-system-omega.vercel.app/
 
-Dashboard Summary: แสดงผลสรุปจำนวนพนักงานทั้งหมดและผลรวมเงินเดือนแบบ Real-time โดยใช้ SQL Aggregation
+## ✨ Features
 
-Employee Management: ระบบ CRUD (Create, Read, Update, Delete) ข้อมูลพนักงาน
+### Authentication & Security
 
-Cloud Profile Image: อัปโหลดและจัดการรูปโปรไฟล์ผ่าน Cloudinary
+* Secure Login System
+* JWT Authentication
+* Protected Dashboard Routes
+* Session Management
 
-Responsive Dashboard: รองรับ
+### Employee Management
 
+* Add Employee Information
+* Update Employee Information
+* Delete Employee Records
+* View Employee Details
+* Employee Search
 
+### Department Management
 
+* HR Department
+* IT Department
+* Finance Department
 
- Tech Stack
-Frontend: React.js, Tailwind CSS, Lucide React (Icons), Axios
+### Dashboard Analytics
 
-Backend: Node.js, Express.js
+* Total Employee Count
+* Total Salary Summary
+* Department Statistics
+* Real-Time Data Display
 
-Database: MySQL (Hosted on Aiven Cloud)
+### Cloud Integration
 
-Image Hosting: Cloudinary API
+* Cloud Database Hosting (Aiven MySQL)
+* Image Upload with Cloudinary
+* Deployment with Vercel
 
-Deployment: Render
+## 🛠️ Tech Stack
 
- Key Technical Challenges 
-Cloud Migration: การย้ายฐานข้อมูลจาก Local ไปยัง Aiven Cloud และการจัดการ Connection String ให้มีความปลอดภัย
+### Frontend
 
-State Management: การใช้ React Hooks (useState, useEffect) และ localStorage เพื่อจัดการข้อมูล User และรูปภาพโปรไฟล์ให้คงอยู่แม้มีการ Refresh หน้าจอ
+* React.js
+* Tailwind CSS
 
-Error Handling: การจัดการ Error จาก API และการแจ้งเตือนผู้ใช้งานผ่าน SweetAlert2
+### Backend
 
+* Node.js
+* Express.js
+* JWT Authentication
 
- Installation & Setup
-Clone โปรเจกต์: git clone ...
+### Database
 
-ติดตั้ง Dependencies: npm install
+* MySQL
+* Aiven Cloud Database
+* DBeaver
 
-ตั้งค่า Environment Variables (.env) สำหรับ DB และ Cloudinary
+### Deployment & Storage
 
-รันโปรเจกต์: npm run dev
+* Vercel
+* Cloudinary
+
+##  Installation
+
+Clone Repository
+
+```bash
+git clone https://github.com/your-username/employee-management-system.git
+```
+
+Install Dependencies
+
+```bash
+npm install
+```
+
+Configure Environment Variables
+
+```env
+DB_HOST=
+DB_USER=
+DB_PASSWORD=
+DB_NAME=
+
+JWT_SECRET=
+
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+```
+
+Run Application
+
+```bash
+npm run dev
+```
+
+## 🔐 Demo Account
+
+Admin Login
+
+Email:
+[test@gmail.com)
+
+Password:
+123456
+
+##  Dashboard Overview
+
+The dashboard provides:
+
+* Total Employees
+* Total Salary Summary
+* HR Department Statistics
+* IT Department Statistics
+* Finance Department Statistics
+
+##  CRUD Operations
+
+The system supports:
+
+* Create Employee
+* Read Employee Information
+* Update Employee Information
+* Delete Employee Information
+
+##  Author
+Admin
+
+GitHub:
+https://github.com/narakronkota
