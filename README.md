@@ -70,9 +70,9 @@ https://staff-management-system-omega.vercel.app/
 
 Clone Repository
 
-```bash
-git clone https://github.com/your-username/employee-management-system.git
-```
+```bash[
+
+(https://github.com/narakronkota/Permanent-employee.git)
 
 Install Dependencies
 
