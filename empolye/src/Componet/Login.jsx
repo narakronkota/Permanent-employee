@@ -91,7 +91,7 @@ const Login = () => {
               <AlertCircle className="h-4 w-4 shrink-0" />
               <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-red-500 animate-pulse" />
               <span>
-                {error === "เข้าสู่ระบบไม่สำเร็จ" || error === "รหัสผ่านไม่ถูก"
+                {error === "เข้าสู่ระบบไม่สำเร็จ" || error === "เกิดข้อผิดพลาด"
                   ? "รหัสผ่านไม่ถูกต้อง"
                   : error}
               </span>
@@ -194,7 +194,7 @@ const Login = () => {
           </form>
 
           <p className="text-center text-xs text-gray-500">
-            Secure admin access only. Unauthorized use is prohibited.
+            อนุญาตเฉพาะผู้ดูแลระบบที่มีรหัสผ่านที่ปลอดภัยเท่านั้น ห้ามใช้งานโดยไม่ได้รับอนุญาต
           </p>
         </div>
       </div>

@@ -301,7 +301,7 @@ const Sidebar = () => {
             <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-4 flex items-center justify-between text-white">
               <div className="flex items-center gap-2">
                 <Camera className="w-5 h-5" />
-                <h3 className="font-bold">เปลี่ยนรูปโปรไฟล์</h3>
+                <h3 className="font-bold">Change Picture</h3>
               </div>
               <button
                 onClick={() => setShowPicker(false)}
@@ -338,7 +338,7 @@ const Sidebar = () => {
                 }`}
               >
                 <Upload className="w-5 h-5" />
-                {isUploading ? "กำลังอัปโหลด..." : "เลือกไฟล์รูปภาพ"}
+                {isUploading ? "Uploading picture...." : "Change Picture"}
               </button>
               <input
                 ref={fileInputRef}
@@ -354,7 +354,7 @@ const Sidebar = () => {
                   className="w-full py-2.5 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50 transition flex items-center justify-center gap-2"
                 >
                   <X className="w-4 h-4" />
-                  ลบรูปโปรไฟล์
+                 Delete Photo
                 </button>
               )}
             </div>

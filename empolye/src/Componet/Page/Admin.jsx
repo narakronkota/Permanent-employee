@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Users, Wallet, TrendingUp, Clock, Sparkles } from "lucide-react"; 
 
-// 🌐 Centralized API Endpoint Config
+//  Centralized API Endpoint Config
 const API_BASE_URL = "https://staff-management-system-omega.vercel.app/api";
 
 const Admin = () => {
@@ -60,7 +60,7 @@ const Admin = () => {
   // --------------------------------------------------------
   const stats = [
     {
-      label: "Total Employees",
+      label: "รวมพนักงาน",
       value: summary.employeeCount,
       icon: Users,
       gradient: "from-orange-500 via-pink-500 to-rose-600",
@@ -69,8 +69,8 @@ const Admin = () => {
       sparkline: [4, 6, 5, 7, 6, 8, 9],
     },
     {
-      label: "Total Salary",
-      value: `฿${(summary.totalSalary).toLocaleString()}`,
+      label: "ยอดเงินเดือนที่ต้องจ่าย",
+      value: `฿${Number(summary.totalSalary).toLocaleString()}`,
       icon: Wallet,
       gradient: "from-emerald-500 via-teal-500 to-cyan-600",
       glow: "shadow-emerald-500/40",
